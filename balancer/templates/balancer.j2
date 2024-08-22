@@ -80,8 +80,6 @@ backend static
 #---------------------------------------------------------------------
 backend app
     balance     roundrobin
-{% for item in groups['webservers'] %}
-    
-    server {{hostvars[item]['inventory_hostname']}} {{ hostvars[item]['ansible_ip'] }}:80 check
+    server node3.example.com 172.28.128.103:80 check
+    server node4.example.com 172.28.128.104:80 check
 
-{% endfor %}
